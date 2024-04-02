@@ -10,7 +10,7 @@ from todo.domain.entities.shared.utils import get_utc_now, is_empty
     ["value", "expected", "identifier"],
     [
         ("", True, "empty string"),
-        (" ", True, "empty string and withespace"),
+        (" ", True, "withespace"),
         ("     ", True, "multiple whitespaces in string"),
         (None, True, "None value"),
         ([], True, "empty list"),
