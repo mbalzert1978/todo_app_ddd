@@ -11,5 +11,5 @@ class ValueObject:
 
     def __hash__(self) -> int:
         if isinstance(self.value, typing.Iterable):
-            return hash(hash(x) for x in self.value)
+            return hash(hash(v) for v in self.value)
         return hash(self.value)
