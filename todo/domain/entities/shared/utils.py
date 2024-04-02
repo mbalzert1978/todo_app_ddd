@@ -19,21 +19,20 @@ def get_utc_now(provider: typing.Optional[DateTimeProvider] = None) -> dt.dateti
     return provider.now(dt.timezone.utc)
 
 
-def is_empty_string(input_value: typing.Optional[str]) -> bool:
+def is_empty(input_value: typing.Optional[typing.Any]) -> bool:
     """
-    Checks if the input string is empty or consists only of whitespace.
+    Checks if the input value is empty or consists only of whitespace.
+
+    When the input value is of type integer or float, it is compared with 0.
 
     Args:
-        input_value (Optional[str]): The string to check.
+        input_value (Optional[typing.Any]): The value to check.
 
     Returns:
-        bool: True if the string is empty or consists only of whitespace, False otherwise.
+        bool: True if the value is empty or consists only of whitespace, False otherwise.
     """
-    if (
+    return (
         input_value is None
-        or input_value == ""
-        or isinstance(input_value, str)
-        and input_value.isspace()
-    ):
-        return True
-    return False
+        or not input_value
+        or (isinstance(input_value, str) and input_value.isspace())
+    )

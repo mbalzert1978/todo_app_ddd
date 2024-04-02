@@ -1,10 +1,9 @@
 import datetime as dt
-from unittest.mock import MagicMock
 
 import pytest
 
 from todo.domain.abstractions.datetime import DateTimeProvider
-from todo.domain.entities.shared.utils import get_utc_now, is_empty_string
+from todo.domain.entities.shared.utils import get_utc_now, is_empty
 
 
 @pytest.mark.parametrize(
@@ -14,6 +13,8 @@ from todo.domain.entities.shared.utils import get_utc_now, is_empty_string
         (" ", True, "empty string and withespace"),
         ("     ", True, "multiple whitespaces in string"),
         (None, True, "None value"),
+        ([], True, "empty list"),
+        (0, True, "zero value"),
     ],
 )
 def test_is_empty_string_when_empty_input_string_should_return_true(
@@ -21,7 +22,7 @@ def test_is_empty_string_when_empty_input_string_should_return_true(
     expected,
     identifier,
 ):
-    assert is_empty_string(value) == expected, identifier
+    assert is_empty(value) == expected, identifier
 
 
 @pytest.mark.parametrize(
@@ -29,6 +30,8 @@ def test_is_empty_string_when_empty_input_string_should_return_true(
     [
         ("foo", False, "no empty string"),
         (" foo ", False, "leading whitespace in string"),
+        (["foo"], False, "no empty list"),
+        (1, False, "no zero value"),
     ],
 )
 def test_is_empty_string_when_correct_input_string_should_return_false(
@@ -36,7 +39,7 @@ def test_is_empty_string_when_correct_input_string_should_return_false(
     expected,
     identifier,
 ):
-    assert is_empty_string(value) == expected, identifier
+    assert is_empty(value) == expected, identifier
 
 
 def test_get_utc_now_when_provider_given_should_call_now_with_correct_timezone():
