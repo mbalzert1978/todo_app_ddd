@@ -1,7 +1,7 @@
 import dataclasses
 
 from todo.domain.entities.shared.exceptions import EmptyError
-from todo.domain.entities.shared.utils import is_empty_str
+from todo.domain.entities.shared.utils import is_empty
 from todo.domain.entities.shared.valueobject import ValueObject
 
 
@@ -11,6 +11,6 @@ class UserName(ValueObject):
 
     @classmethod
     def create(cls, value: str) -> "UserName":
-        if is_empty_str(value):
+        if is_empty(value):
             raise EmptyError("user name", value)
         return cls(value)

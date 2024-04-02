@@ -2,7 +2,7 @@ import dataclasses
 
 from todo.domain.abstractions.validation import EmailValidationProvider
 from todo.domain.entities.shared.exceptions import EmptyError
-from todo.domain.entities.shared.utils import is_empty_str
+from todo.domain.entities.shared.utils import is_empty
 from todo.domain.entities.shared.valueobject import ValueObject
 from todo.domain.entities.user_credentials.exception import InvalidEmailError
 
@@ -13,7 +13,7 @@ class Email(ValueObject):
 
     @classmethod
     def create(cls, value: str, provider: EmailValidationProvider) -> "Email":
-        if is_empty_str(value):
+        if is_empty(value):
             raise EmptyError("email", value)
         if not provider.is_valid_email(value):
             raise InvalidEmailError(value)
