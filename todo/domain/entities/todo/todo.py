@@ -14,7 +14,7 @@ class Todo(Entity):
     description: Description
     completed: bool
     due_date: dt.date | None
-    created_at: dt.datetime
+    created_at: dt.datetime  # TODO: user timestamp here and abstract the datetime
     updated_at: dt.datetime
 
     @classmethod
