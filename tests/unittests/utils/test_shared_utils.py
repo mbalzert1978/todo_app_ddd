@@ -43,7 +43,6 @@ def test_is_empty_string_when_correct_input_string_should_return_false(
 
 
 def test_get_utc_now_when_provider_given_should_call_now_with_correct_timezone():
-    # Arrange
     class StubDateTimeProvider(DateTimeProvider):
         def now(self, tzinfo: dt.tzinfo | None = None) -> dt.datetime:
             self._tz = tzinfo
@@ -52,9 +51,7 @@ def test_get_utc_now_when_provider_given_should_call_now_with_correct_timezone()
     expected_time = dt.datetime(2022, 1, 1, 0, 0, 0)
     stub = StubDateTimeProvider()
 
-    # Act
     result = get_utc_now(provider=stub)
 
-    # Assert
     assert result == expected_time
     assert stub._tz == dt.timezone.utc
