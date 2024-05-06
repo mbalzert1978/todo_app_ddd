@@ -3,7 +3,7 @@ import datetime as dt
 import pytest
 
 from todo.domain.abstractions.datetime import DateTimeProvider
-from todo.domain.entities.shared.utils import get_utc_now, is_empty
+from todo.shared_kernel.utils import get_utc_now, is_empty
 
 
 @pytest.mark.parametrize(
