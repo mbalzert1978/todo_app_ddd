@@ -1,10 +1,12 @@
 import dataclasses
 
 from todo.domain.abstractions.hashing import HashingProvider
-from todo.domain.entities.user.user_id import UserId
-from todo.domain.entities.user_credentials.email import Email
-from todo.domain.entities.user_credentials.password import Password
-from todo.domain.entities.user_credentials.password_hash import PasswordHash
+from todo.domain.authentication.user.value_objects.user_id import UserId
+from todo.domain.authentication.user_credentials.value_objects.email import Email
+from todo.domain.authentication.user_credentials.value_objects.password import Password
+from todo.domain.authentication.user_credentials.value_objects.password_hash import (
+    PasswordHash,
+)
 from todo.shared_kernel.entity import Entity
 
 

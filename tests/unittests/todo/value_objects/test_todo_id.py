@@ -1,7 +1,7 @@
 import pytest
 
-from todo.domain.roots.todo.exception import WrongType
-from todo.domain.roots.todo.value_objects.todo_id import TodoId
+from todo.domain.todo.exception import WrongType
+from todo.domain.todo.value_objects.todo_id import TodoId
 
 
 def test_uuid_id_generate_valid_uuid() -> None:

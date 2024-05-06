@@ -1,6 +1,6 @@
 import dataclasses
 
-from todo.domain.roots.user.exception import EmptyError
+from todo.domain.authentication.user.exception import EmptyError
 from todo.shared_kernel.utils import is_empty
 from todo.shared_kernel.valueobject import ValueObject
 

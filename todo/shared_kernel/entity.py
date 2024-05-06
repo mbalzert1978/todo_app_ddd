@@ -1,6 +1,6 @@
 import dataclasses
 
-from .valueobject import ValueObject
+from todo.shared_kernel.valueobject import ValueObject
 
 
 @dataclasses.dataclass

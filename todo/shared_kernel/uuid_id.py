@@ -1,7 +1,7 @@
 import dataclasses
 import uuid
 
-from todo.domain.roots.todo.exception import WrongType
+from todo.domain.todo.exception import WrongType
 from todo.shared_kernel.valueobject import ValueObject
 
 
@@ -17,5 +17,5 @@ class UuidId(ValueObject[uuid.UUID]):
     def new(cls, value: uuid.UUID) -> "UuidId":
         if isinstance(value, uuid.UUID):
             return cls(value)
-        msg = f"UuidId must be of type {type(uuid.UUID)}, not {type(value)}"
+        msg = f"UuidId must be of type {uuid.UUID}, not {type(value)}"
         raise WrongType(msg)

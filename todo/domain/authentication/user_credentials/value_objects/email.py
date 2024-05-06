@@ -1,7 +1,10 @@
 import dataclasses
 
 from todo.domain.abstractions.validation import EmailValidationProvider
-from todo.domain.roots.user_credentials.exception import EmptyError, InvalidEmailError
+from todo.domain.authentication.user_credentials.exception import (
+    EmptyError,
+    InvalidEmailError,
+)
 from todo.shared_kernel.utils import is_empty
 from todo.shared_kernel.valueobject import ValueObject
 
