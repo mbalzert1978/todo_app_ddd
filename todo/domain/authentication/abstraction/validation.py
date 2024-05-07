@@ -13,3 +13,15 @@ class PasswordValidationProvider(typing.Protocol):
 
     def is_valid_password(self, password: str) -> bool:
         """Validate Password."""
+
+
+class ValidationProvider(typing.Protocol):
+    """Validation Provider Interface."""
+
+    @property
+    def email(self) -> EmailValidationProvider:
+        """Email Validation Provider."""
+
+    @property
+    def password(self) -> PasswordValidationProvider:
+        """Password Validation Provider."""
