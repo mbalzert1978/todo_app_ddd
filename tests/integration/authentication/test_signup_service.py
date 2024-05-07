@@ -32,7 +32,7 @@ def test_signup_service_with_correct_values_should_write_to_database(
     service: SignUpService,
     user_repo: UserRepository,
 ) -> None:
-    service.sign_up(name="test", email="test@mail.com", password="123Has-Symbols")
+    service.sign_up(name="test", email="test@mail.com", password="test_1234")
 
     assert user_repo.get_by_email("test@mail.com") is not None
 
@@ -42,7 +42,7 @@ def test_signup_service_with_incorrect_email_value_should_not_write_to_database(
     user_repo: UserRepository,
 ) -> None:
     with pytest.raises(InvalidEmailError):
-        service.sign_up(name="test", email="invaild", password="123Has-Symbols")
+        service.sign_up(name="test", email="invaild", password="test_1234")
 
     with pytest.raises(InvalidPasswordError):
         service.sign_up(name="test", email="test@mail.com", password="short")
