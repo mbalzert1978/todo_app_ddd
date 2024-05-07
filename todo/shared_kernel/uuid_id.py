@@ -14,6 +14,10 @@ class UuidId(ValueObject[uuid.UUID]):
         return cls(uuid.uuid4())
 
     @classmethod
+    def from_str(cls, value: str) -> "UuidId":
+        return cls(uuid.UUID(value))
+
+    @classmethod
     def new(cls, value: uuid.UUID) -> "UuidId":
         if isinstance(value, uuid.UUID):
             return cls(value)
