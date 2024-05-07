@@ -1,24 +1,17 @@
 import datetime as dt
 import typing
 
-from todo.domain.abstractions.datetime import DateTimeProvider
-
 T = typing.TypeVar("T")
 
 
-def get_utc_now(provider: typing.Optional[DateTimeProvider] = None) -> dt.datetime:
+def get_utc_now() -> dt.datetime:
     """
     Get the current UTC datetime using the given DateTimeProvider.
-
-    Args:
-        provider (Optional[DateTimeProvider]): The DateTimeProvider to use.
-            If None, the built-in datetime.now function is used.
 
     Returns:
         datetime.datetime: The current UTC datetime.
     """
-    provider = provider or dt.datetime
-    return provider.now(dt.timezone.utc)
+    return dt.datetime.now(dt.timezone.utc)
 
 
 def is_empty(input_value: typing.Optional[T]) -> bool:

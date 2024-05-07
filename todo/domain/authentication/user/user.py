@@ -1,7 +1,7 @@
 import dataclasses
 
-from todo.domain.authentication.user.value_objects.user_id import UserId
-from todo.domain.authentication.user.value_objects.user_name import UserName
+from todo.domain.authentication.user.user_id import UserId
+from todo.domain.authentication.user.user_name import UserName
 from todo.shared_kernel.entity import Entity
 
 

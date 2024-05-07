@@ -1,6 +1,6 @@
 import dataclasses
 
-from todo.shared_kernel.exceptions import EmptyError
+from todo.domain.todo.exception import EmptyError
 from todo.shared_kernel.utils import is_empty
 from todo.shared_kernel.valueobject import ValueObject
 

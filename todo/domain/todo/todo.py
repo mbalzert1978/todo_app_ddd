@@ -1,10 +1,10 @@
 import dataclasses
 import datetime as dt
 
-from todo.domain.roots.todo.value_objects.description import Description
-from todo.domain.roots.todo.value_objects.due_date import DueDate
-from todo.domain.roots.todo.value_objects.title import Title
-from todo.domain.roots.todo.value_objects.todo_id import TodoId
+from todo.domain.todo.description import Description
+from todo.domain.todo.due_date import DueDate
+from todo.domain.todo.title import Title
+from todo.domain.todo.todo_id import TodoId
 from todo.shared_kernel.entity import Entity
 from todo.shared_kernel.utils import get_utc_now
 
