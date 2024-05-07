@@ -5,4 +5,5 @@ class AggregateRoot(Entity):
     """
     An entry point of aggregate.
     """
+
     pass
