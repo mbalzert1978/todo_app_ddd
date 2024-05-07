@@ -24,4 +24,4 @@ class Password(ValueObject):
         raise InvalidPasswordError(value)
 
     def to_hash(self, salt: str, provider: HashingProvider) -> PasswordHash:
-        return PasswordHash.create(self.value, salt, provider)
+        return PasswordHash.new(self.value, salt, provider)
