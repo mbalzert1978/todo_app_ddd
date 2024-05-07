@@ -1,4 +1,5 @@
 import string
+
 import pydantic
 
 from todo.domain.authentication.abstraction.validation import (

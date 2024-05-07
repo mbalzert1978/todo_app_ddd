@@ -7,10 +7,12 @@ from todo.domain.todo.title import Title
 from todo.domain.todo.todo_id import TodoId
 from todo.shared_kernel.entity import Entity
 from todo.shared_kernel.utils import get_utc_now
+from todo.shared_kernel.valueobject import ValueObject
 
 
 @dataclasses.dataclass(kw_only=True, eq=False, slots=True)
 class Todo(Entity):
+    user_id: ValueObject
     title: Title
     description: Description
     due_date: DueDate
@@ -21,6 +23,7 @@ class Todo(Entity):
     @classmethod
     def new(
         cls,
+        user_id: ValueObject,
         title: Title,
         description: Description,
         due_date: DueDate,
@@ -28,6 +31,7 @@ class Todo(Entity):
         now = get_utc_now()
         return cls(
             id=TodoId.generate(),
+            user_id=user_id,
             title=title,
             description=description,
             due_date=due_date,

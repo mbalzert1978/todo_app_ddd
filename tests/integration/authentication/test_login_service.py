@@ -1,7 +1,11 @@
 from typing import Iterator
+
 import pytest
+
+from todo.application.use_cases.authentication.login_usecase.login_service import (
+    LoginService,
+)
 from todo.application.use_cases.exceptions import CredentialsError
-from todo.application.use_cases.login_usecase.login_service import LoginService
 from todo.domain.authentication.user.email import Email
 from todo.domain.authentication.user.password import Password
 from todo.domain.authentication.user.password_hash import PasswordHash
