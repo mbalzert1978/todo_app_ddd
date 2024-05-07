@@ -25,7 +25,7 @@ class LoginService:
     def login(self, email: str, password: str) -> User:
         if (user := self.users.get_by_email(email)) is None:
             raise NotFoundError()
-        if (credentials := self.credentials.get_by_email(email)) is None:
+        if (credentials := self.credentials.get_by_id(user.id)) is None:
             raise TransactionError(email)
         if not credentials.password_hash.verify(password, self.hasher):
             raise CredentialsError()
