@@ -2,10 +2,17 @@ class UserError(Exception):
     """Base Todo Error class for other exceptions"""
 
 
-class EmptyError(UserError):
-    """Raised when an value is empty."""
+class InvalidEmailError(UserError):
+    """Raised when an email is invalid"""
 
-    def __init__(self, attr: str, value: str | None) -> None:
-        self.attr = attr
+    def __init__(self, value: str) -> None:
         self.value = value
-        super().__init__(f"{self.attr.capitalize()} cannot be empty: {self.value}")
+        super().__init__(f"{self.value} is not a valid email.")
+
+
+class InvalidPasswordError(UserError):
+    """Raised when an password is invalid"""
+
+    def __init__(self, value: str) -> None:
+        self.value = value
+        super().__init__(f"{self.value} is not a valid password.")

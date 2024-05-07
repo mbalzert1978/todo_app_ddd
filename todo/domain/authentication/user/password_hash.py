@@ -1,24 +1,22 @@
 import dataclasses
 
-from todo.domain.abstractions.hashing import HashingProvider
+from todo.domain.authentication.abstraction.hashing import HashingProvider
 from todo.shared_kernel.valueobject import ValueObject
 
 
 @dataclasses.dataclass(frozen=True, slots=True)
 class PasswordHash(ValueObject):
-    value: str
-    _salt: str
-    _provider: HashingProvider
+    value: bytes
 
     @classmethod
-    def create(
+    def new(
         cls,
         password: str,
-        salt: str,
+        salt: bytes,
         provider: HashingProvider,
     ) -> "PasswordHash":
         value = provider.hash(password, salt)
-        return cls(value, salt, provider)
+        return cls(value)
 
-    def verify(self, password: str) -> bool:
-        return self._provider.verify(password, self._salt, self.value)
+    def verify(self, password: str, provider: HashingProvider) -> bool:
+        return provider.verify(password, self.value)

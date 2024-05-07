@@ -1,7 +1,7 @@
 import dataclasses
 import datetime
 
-from todo.domain.roots.todo.exception import WrongType
+from todo.domain.todo.exception import WrongType
 from todo.shared_kernel.utils import get_utc_now
 from todo.shared_kernel.valueobject import ValueObject
 

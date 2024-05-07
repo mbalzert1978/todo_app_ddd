@@ -2,7 +2,6 @@ import datetime as dt
 
 import pytest
 
-from todo.domain.abstractions.datetime import DateTimeProvider
 from todo.shared_kernel.utils import get_utc_now, is_empty
 
 
@@ -42,16 +41,8 @@ def test_is_empty_string_when_correct_input_string_should_return_false(
     assert is_empty(value) == expected, identifier
 
 
-def test_get_utc_now_when_provider_given_should_call_now_with_correct_timezone():
-    class StubDateTimeProvider(DateTimeProvider):
-        def now(self, tzinfo: dt.tzinfo | None = None) -> dt.datetime:
-            self._tz = tzinfo
-            return expected_time
+def test_get_utc_now_should_return_dt_object_with_tzinfo_utc() -> None:
+    result = get_utc_now()
 
-    expected_time = dt.datetime(2022, 1, 1, 0, 0, 0)
-    stub = StubDateTimeProvider()
-
-    result = get_utc_now(provider=stub)
-
-    assert result == expected_time
-    assert stub._tz == dt.timezone.utc
+    assert isinstance(result, dt.datetime)
+    assert result.tzinfo == dt.timezone.utc
