@@ -9,7 +9,7 @@ from todo.shared_kernel.entity import Entity
 from todo.shared_kernel.utils import get_utc_now
 
 
-@dataclasses.dataclass(slots=True)
+@dataclasses.dataclass(kw_only=True, eq=False, slots=True)
 class Todo(Entity):
     title: Title
     description: Description
