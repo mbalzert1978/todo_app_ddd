@@ -1,16 +1,26 @@
 import dataclasses
+import typing
 
 from todo.domain.authentication.user.email import Email
+from todo.domain.authentication.user.password_hash import PasswordHash
 from todo.domain.authentication.user.user_id import UserId
 from todo.domain.authentication.user.user_name import UserName
 from todo.shared_kernel.entity import Entity
 
+T = typing.TypeVar("T")
 
-@dataclasses.dataclass
-class User(Entity):
+
+@dataclasses.dataclass(kw_only=True, eq=False, slots=True)
+class User(Entity, typing.Generic[T]):
     name: UserName
     email: Email
+    password_hash: PasswordHash
 
     @classmethod
-    def new(cls, name: UserName, email: Email) -> "User":
-        return cls(id=UserId.generate(), name=name, email=email)
+    def new(cls, name: UserName, email: Email, password_hash: PasswordHash) -> "User":
+        return cls(
+            id=UserId.generate(),
+            name=name,
+            email=email,
+            password_hash=password_hash,
+        )
