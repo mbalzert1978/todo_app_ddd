@@ -46,13 +46,13 @@ class Todo(Entity):
     def uncompleted(self) -> "Todo":
         return dataclasses.replace(self, completed=False, updated_at=get_utc_now())
 
-    def set_due_date(self, due_date: DueDate) -> "Todo":
+    def update_due_date(self, due_date: DueDate) -> "Todo":
         return dataclasses.replace(self, due_date=due_date, updated_at=get_utc_now())
 
-    def set_title(self, title: Title) -> "Todo":
+    def update_title(self, title: Title) -> "Todo":
         return dataclasses.replace(self, title=title, updated_at=get_utc_now())
 
-    def set_description(self, description: Description) -> "Todo":
+    def update_description(self, description: Description) -> "Todo":
         return dataclasses.replace(
             self,
             description=description,
