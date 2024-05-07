@@ -1,8 +1,8 @@
 import dataclasses
 
+from todo.domain.authentication.user.email import Email
 from todo.domain.authentication.user.user_id import UserId
 from todo.domain.authentication.user.user_name import UserName
-from todo.domain.authentication.user_credentials.email import Email
 from todo.shared_kernel.entity import Entity
 
 
