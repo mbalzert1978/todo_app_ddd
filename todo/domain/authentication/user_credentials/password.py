@@ -1,11 +1,7 @@
 import dataclasses
 
-from todo.domain.authentication.user_credentials.abstraction.hashing import (
-    HashingProvider,
-)
-from todo.domain.authentication.user_credentials.abstraction.validation import (
-    PasswordValidationProvider,
-)
+from todo.domain.authentication.abstraction.hashing import HashingProvider
+from todo.domain.authentication.abstraction.validation import PasswordValidationProvider
 from todo.domain.authentication.user_credentials.exception import (
     EmptyError,
     InvalidPasswordError,

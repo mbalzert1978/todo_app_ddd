@@ -1,8 +1,6 @@
 import dataclasses
 
-from todo.domain.authentication.user_credentials.abstraction.hashing import (
-    HashingProvider,
-)
+from todo.domain.authentication.abstraction.hashing import HashingProvider
 from todo.domain.authentication.user_credentials.email import Email
 from todo.domain.authentication.user_credentials.password import Password
 from todo.domain.authentication.user_credentials.password_hash import (

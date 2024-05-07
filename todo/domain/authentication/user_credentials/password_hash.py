@@ -1,8 +1,6 @@
 import dataclasses
 
-from todo.domain.authentication.user_credentials.abstraction.hashing import (
-    HashingProvider,
-)
+from todo.domain.authentication.abstraction.hashing import HashingProvider
 from todo.shared_kernel.valueobject import ValueObject
 
 
